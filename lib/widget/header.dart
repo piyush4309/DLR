@@ -15,12 +15,13 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      //color: Color.lightGreen,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         // logo
         const Text(
-          'Land Registry',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          'Land Registration',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.lightGreen),
         ),
 
         Row(
@@ -40,8 +41,8 @@ class HeaderWidget extends StatelessWidget {
                     'Home',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -76,8 +77,8 @@ class HeaderWidget extends StatelessWidget {
                     'User',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -109,11 +110,11 @@ class HeaderWidget extends StatelessWidget {
                     appContainer?.style.cursor = 'default';
                   },
                   child: const Text(
-                    'Land Inspector',
+                    'Government Official',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -145,11 +146,11 @@ class HeaderWidget extends StatelessWidget {
                     appContainer?.style.cursor = 'default';
                   },
                   child: const Text(
-                    'Contract Owner',
+                    'Admin',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -158,34 +159,34 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: GestureDetector(
-                onTap: () async {
-                  // await Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => RegisterUser()));
-                },
-                child: MouseRegion(
-                  onHover: (PointerHoverEvent evt) {
-                    appContainer?.style.cursor = 'pointer';
-                  },
-                  onExit: (PointerExitEvent evt) {
-                    appContainer?.style.cursor = 'default';
-                  },
-                  child: const Text(
-                    'About',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      letterSpacing: 1.627907,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(14.0),
+            //   child: GestureDetector(
+            //     onTap: () async {
+            //       // await Navigator.push(context,
+            //       //     MaterialPageRoute(builder: (context) => RegisterUser()));
+            //     },
+            //     child: MouseRegion(
+            //       onHover: (PointerHoverEvent evt) {
+            //         appContainer?.style.cursor = 'pointer';
+            //       },
+            //       onExit: (PointerExitEvent evt) {
+            //         appContainer?.style.cursor = 'default';
+            //       },
+            //       child: const Text(
+            //         'About',
+            //         style: TextStyle(
+            //           fontFamily: 'Poppins',
+            //           color: Colors.lightGreen,
+            //           fontSize: 18,
+            //           fontWeight: FontWeight.w400,
+            //           fontStyle: FontStyle.normal,
+            //           letterSpacing: 1.627907,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             // Padding(
             //   padding: const EdgeInsets.all(14.0),
             //   child: IconButton(

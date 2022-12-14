@@ -44,185 +44,186 @@ class _CheckPrivateKeyState extends State<CheckPrivateKey> {
       ),
       body: Container(
         //width: 500,
+        color: Colors.lightGreen,
         alignment: Alignment.topCenter,
         child: Column(
           children: [
-            SvgPicture.asset(
-              'assets/auth.svg',
-              height: 280.0,
-              width: 520.0,
-              allowDrawingOutsideViewBox: true,
-            ),
+            // SvgPicture.asset(
+            //   'assets/auth.svg',
+            //   height: 280.0,
+            //   width: 520.0,
+            //   allowDrawingOutsideViewBox: true,
+            // ),
             // Image.asset(
             //   'assets/authenticate.png',
             //   height: 280,
             //   width: 520,
             // ),
-            const Text(
-                'You can enter private key of your wallet Or you connect Metamask wallet'),
-            SizedBox(
-              width: width,
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Form(
-                  key: _formKey,
-                  child: TextFormField(
-                    controller: keyController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter private key';
-                      }
-                      return null;
-                    },
-                    obscureText: _isObscure,
-                    onChanged: (val) {
-                      privatekey = val;
-                    },
-                    decoration: InputDecoration(
-                      suffixIcon: MaterialButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () async {
-                          final clipPaste =
-                              await Clipboard.getData(Clipboard.kTextPlain);
-                          keyController.text = clipPaste!.text!;
-                          privatekey = keyController.text;
-                          setState(() {});
-                        },
-                        child: const Text(
-                          "Paste",
-                          style: TextStyle(color: Colors.blue),
-                        ),
-                      ),
-                      suffix: IconButton(
-                          iconSize: 20,
-                          constraints: const BoxConstraints.tightFor(
-                              height: 15, width: 15),
-                          padding: const EdgeInsets.all(0),
-                          icon: Icon(
-                            _isObscure
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          }),
-                      border: const OutlineInputBorder(),
-                      labelText: 'Private Key',
-                      hintText: 'Enter Your PrivateKey',
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // const Text(
+            //     'You can enter private key of your wallet Or you connect Metamask wallet'),
+            // SizedBox(
+            //   width: width,
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(15),
+            //     child: Form(
+            //       key: _formKey,
+            //       child: TextFormField(
+            //         controller: keyController,
+            //         validator: (value) {
+            //           if (value == null || value.isEmpty) {
+            //             return 'Please enter private key';
+            //           }
+            //           return null;
+            //         },
+            //         obscureText: _isObscure,
+            //         onChanged: (val) {
+            //           privatekey = val;
+            //         },
+            //         decoration: InputDecoration(
+            //           suffixIcon: MaterialButton(
+            //             padding: const EdgeInsets.all(0),
+            //             onPressed: () async {
+            //               final clipPaste =
+            //                   await Clipboard.getData(Clipboard.kTextPlain);
+            //               keyController.text = clipPaste!.text!;
+            //               privatekey = keyController.text;
+            //               setState(() {});
+            //             },
+            //             child: const Text(
+            //               "Paste",
+            //               style: TextStyle(color: Colors.blue),
+            //             ),
+            //           ),
+            //           suffix: IconButton(
+            //               iconSize: 20,
+            //               constraints: const BoxConstraints.tightFor(
+            //                   height: 15, width: 15),
+            //               padding: const EdgeInsets.all(0),
+            //               icon: Icon(
+            //                 _isObscure
+            //                     ? Icons.visibility
+            //                     : Icons.visibility_off,
+            //               ),
+            //               onPressed: () {
+            //                 setState(() {
+            //                   _isObscure = !_isObscure;
+            //                 });
+            //               }),
+            //           border: const OutlineInputBorder(),
+            //           labelText: 'Private Key',
+            //           hintText: 'Enter Your PrivateKey',
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Text(
               errorMessage,
               style: const TextStyle(color: Colors.red),
             ),
-            CustomButton(
-                'Continue',
-                isLoading
-                    ? null
-                    : () async {
-                        if (_formKey.currentState!.validate()) {
-                          privateKey = privatekey;
-                          //print(privateKey);
-                          connectedWithMetamask = false;
-                          setState(() {
-                            isLoading = true;
-                          });
-                          try {
-                            await model.initiateSetup();
+            // CustomButton(
+            //     'Continue',
+            //     isLoading
+            //         ? null
+            //         : () async {
+            //             if (_formKey.currentState!.validate()) {
+            //               privateKey = privatekey;
+            //               //print(privateKey);
+            //               connectedWithMetamask = false;
+            //               setState(() {
+            //                 isLoading = true;
+            //               });
+            //               try {
+            //                 await model.initiateSetup();
 
-                            if (widget.val == "owner") {
-                              bool temp =
-                                  await model.isContractOwner(privatekey);
-                              if (temp == false) {
-                                setState(() {
-                                  errorMessage = "You are not authrosied";
-                                });
-                              } else {
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             const AddLandInspector()));
-                                Navigator.of(context).pushNamed(
-                                  '/contractowner',
-                                );
-                              }
-                            } else if (widget.val == "RegisterUser") {
-                              bool temp = await model.isUserregistered();
-                              if (temp) {
-                                setState(() {
-                                  errorMessage = "You already registered";
-                                });
-                              } else {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const RegisterUser()));
-                              }
-                            } else if (widget.val == "LandInspector") {
-                              bool temp =
-                                  await model.isLandInspector(privatekey);
-                              if (temp == false) {
-                                setState(() {
-                                  errorMessage = "You are not authrosied";
-                                });
-                              } else {
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             const LandInspector()));
-                                Navigator.of(context).pushNamed(
-                                  '/landinspector',
-                                );
-                              }
-                            } else if (widget.val == "UserLogin") {
-                              bool temp = await model.isUserregistered();
-                              if (temp == false) {
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             const RegisterUser()));
-                                Navigator.of(context).pushNamed(
-                                  '/registeruser',
-                                );
-                              } else {
-                                Navigator.pop(context);
-                                Navigator.pop(context);
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             const UserDashBoard()));
-                                Navigator.of(context).pushNamed(
-                                  '/user',
-                                );
-                              }
-                            }
-                          } catch (e) {
-                            print(e);
-                            showToast("Something Went Wrong",
-                                context: context, backgroundColor: Colors.red);
-                          }
-                          setState(() {
-                            isLoading = false;
-                          });
-                        }
-                      }),
-            const Text('Or Click to connect Metamask'),
+            //                 if (widget.val == "owner") {
+            //                   bool temp =
+            //                       await model.isContractOwner(privatekey);
+            //                   if (temp == false) {
+            //                     setState(() {
+            //                       errorMessage = "You are not authrosied";
+            //                     });
+            //                   } else {
+            //                     Navigator.pop(context);
+            //                     Navigator.pop(context);
+            //                     // Navigator.push(
+            //                     //     context,
+            //                     //     MaterialPageRoute(
+            //                     //         builder: (context) =>
+            //                     //             const AddLandInspector()));
+            //                     Navigator.of(context).pushNamed(
+            //                       '/contractowner',
+            //                     );
+            //                   }
+            //                 } else if (widget.val == "RegisterUser") {
+            //                   bool temp = await model.isUserregistered();
+            //                   if (temp) {
+            //                     setState(() {
+            //                       errorMessage = "You already registered";
+            //                     });
+            //                   } else {
+            //                     Navigator.push(
+            //                         context,
+            //                         MaterialPageRoute(
+            //                             builder: (context) =>
+            //                                 const RegisterUser()));
+            //                   }
+            //                 } else if (widget.val == "LandInspector") {
+            //                   bool temp =
+            //                       await model.isLandInspector(privatekey);
+            //                   if (temp == false) {
+            //                     setState(() {
+            //                       errorMessage = "You are not authrosied";
+            //                     });
+            //                   } else {
+            //                     Navigator.pop(context);
+            //                     Navigator.pop(context);
+            //                     // Navigator.push(
+            //                     //     context,
+            //                     //     MaterialPageRoute(
+            //                     //         builder: (context) =>
+            //                     //             const LandInspector()));
+            //                     Navigator.of(context).pushNamed(
+            //                       '/landinspector',
+            //                     );
+            //                   }
+            //                 } else if (widget.val == "UserLogin") {
+            //                   bool temp = await model.isUserregistered();
+            //                   if (temp == false) {
+            //                     Navigator.pop(context);
+            //                     Navigator.pop(context);
+            //                     // Navigator.push(
+            //                     //     context,
+            //                     //     MaterialPageRoute(
+            //                     //         builder: (context) =>
+            //                     //             const RegisterUser()));
+            //                     Navigator.of(context).pushNamed(
+            //                       '/registeruser',
+            //                     );
+            //                   } else {
+            //                     Navigator.pop(context);
+            //                     Navigator.pop(context);
+            //                     // Navigator.push(
+            //                     //     context,
+            //                     //     MaterialPageRoute(
+            //                     //         builder: (context) =>
+            //                     //             const UserDashBoard()));
+            //                     Navigator.of(context).pushNamed(
+            //                       '/user',
+            //                     );
+            //                   }
+            //                 }
+            //               } catch (e) {
+            //                 print(e);
+            //                 showToast("Something Went Wrong",
+            //                     context: context, backgroundColor: Colors.red);
+            //               }
+            //               setState(() {
+            //                 isLoading = false;
+            //               });
+            //             }
+            //           }),
+            const Text('Click to connect with Metamask'),
             ElevatedButton(
               onPressed: () async {
                 await model2.connect();

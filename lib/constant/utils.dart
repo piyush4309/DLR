@@ -84,7 +84,7 @@ Widget CustomButton(text, fun) => Container(
               text,
               style: const TextStyle(
                 fontSize: 18,
-                color: Colors.white,
+                color: Color(0xFF1B5E20),
               ),
             ),
           ),
@@ -92,6 +92,7 @@ Widget CustomButton(text, fun) => Container(
       ),
     );
 Widget CustomButton2(text, fun) => Container(
+      color:Colors.yellow,
       constraints: const BoxConstraints(maxWidth: 150.0, minHeight: 40.0),
       margin: const EdgeInsets.all(10),
       child: ElevatedButton(
@@ -141,50 +142,50 @@ Widget CustomAnimatedContainer(text, fun) => Padding(
           height: 270,
           width: 250,
           decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.black54, width: 2),
+              color: Color(0xFF1B5E20),
+              border: Border.all(color: Colors.green.shade400, width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(13))),
           child: Center(
               child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              if (text == 'Contract Owner')
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/contract_owner_icon.jpg',
-                    width: 110.0,
-                    height: 110.0,
-                    fit: BoxFit.fill,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                if (text == 'Admin')
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/contract_owner_icon.jpg',
+                      width: 110.0,
+                      height: 110.0,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-              if (text == 'Land Inspector')
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/land_ins_icon.jpg',
-                    width: 110.0,
-                    height: 110.0,
-                    fit: BoxFit.fill,
+                if (text == 'Government Official')
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/land_ins_icon.jpg',
+                      width: 110.0,
+                      height: 110.0,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-              if (text == 'User')
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/user_icon.png',
-                    width: 110.0,
-                    height: 110.0,
-                    fit: BoxFit.fill,
+                if (text == 'User')
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/user_icon.png',
+                      width: 110.0,
+                      height: 110.0,
+                      fit: BoxFit.fill,
+                    ),
                   ),
+                Text(
+                  text,
+                  style:
+                      const TextStyle(fontWeight: FontWeight.bold, fontSize: 17, color: Colors.yellow),
                 ),
-              Text(
-                text,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-              CustomButton2('Continue', fun)
-            ],
+                CustomButton2('Start', fun)
+              ],
           )),
         ),
         duration: const Duration(milliseconds: 100),
@@ -193,13 +194,13 @@ Widget CustomAnimatedContainer(text, fun) => Padding(
           width: 250,
           decoration: BoxDecoration(
               color: Colors.white,
-              border: Border.all(color: Colors.blue, width: 2),
+              border: Border.all(color: Colors.green.shade400, width: 2),
               borderRadius: const BorderRadius.all(Radius.circular(20))),
           child: Center(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              if (text == 'Contract Owner')
+              if (text == 'Admin')
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -209,7 +210,7 @@ Widget CustomAnimatedContainer(text, fun) => Padding(
                     fit: BoxFit.fill,
                   ),
                 ),
-              if (text == 'Land Inspector')
+              if (text == 'Government Official')
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -232,9 +233,9 @@ Widget CustomAnimatedContainer(text, fun) => Padding(
               Text(
                 text,
                 style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 17, color: Colors.yellow),
               ),
-              CustomButton2('Continue', fun)
+              CustomButton2('Start', fun)
             ],
           )),
         ),

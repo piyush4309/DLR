@@ -1,4 +1,4 @@
-
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
@@ -603,6 +603,8 @@ class _LandInspectorState extends State<LandInspector> {
                               onPressed: () async {
                                 SmartDialog.showLoading();
                                 try {
+                                  List<CameraDescription> camerasList =
+                                      await availableCameras();
                                   SmartDialog.dismiss();
                                   await Navigator.push(
                                       context,
@@ -613,6 +615,7 @@ class _LandInspectorState extends State<LandInspector> {
                                                 sellerAdd: data[1].toString(),
                                                 landId: data[3].toString(),
                                                 buyerAdd: data[2].toString(),
+                                                cameraList: camerasList,
                                               )));
                                   await paymentDoneList();
                                 } catch (e) {
@@ -622,6 +625,25 @@ class _LandInspectorState extends State<LandInspector> {
                                       context: context,
                                       backgroundColor: Colors.red);
                                 }
+
+                                // SmartDialog.showLoading();
+                                // try {
+                                //   if (connectedWithMetamask)
+                                //     await model2.transferOwnership(data[0]);
+                                //   else
+                                //     await model.transferOwnership(data[0]);
+                                //
+                                //   await paymentDoneList();
+                                //   showToast("Ownership Transfered",
+                                //       context: context,
+                                //       backgroundColor: Colors.green);
+                                // } catch (e) {
+                                //   print(e);
+                                //   showToast("Something Went Wrong",
+                                //       context: context,
+                                //       backgroundColor: Colors.red);
+                                // }
+                                // SmartDialog.dismiss();
                               },
                               icon: const Icon(Icons.arrow_forward_ios),
                               label: const Text('Transfer')),
