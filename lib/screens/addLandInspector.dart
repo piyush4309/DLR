@@ -24,9 +24,9 @@ class _AddLandInspectorState extends State<AddLandInspector> {
   final _formKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List<Menu> menuItems = [
-    Menu(title: 'Add Land Inspector', icon: Icons.person_add),
+    Menu(title: 'Add Govt Official', icon: Icons.person_add),
     Menu(title: 'All Land Inspectors', icon: Icons.group),
-    Menu(title: 'Change Contract Owner', icon: Icons.change_circle),
+    Menu(title: 'Change Admin', icon: Icons.change_circle),
     Menu(title: 'Logout', icon: Icons.logout),
   ];
 
@@ -57,7 +57,7 @@ class _AddLandInspectorState extends State<AddLandInspector> {
                 },
               ),
         title: const Text(
-          'Add Land Inspector',
+          'Add Govt Official',
         ),
       ),
       drawer: drawer2(),
@@ -224,7 +224,7 @@ class _AddLandInspectorState extends State<AddLandInspector> {
           child: Column(
             children: <Widget>[
               const Text(
-                "Change Contract Owner",
+                "Change Admin",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
               SizedBox(
@@ -245,7 +245,7 @@ class _AddLandInspectorState extends State<AddLandInspector> {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Address',
-                    hintText: 'Enter new Contract Owner Address',
+                    hintText: 'Enter new Admin Address',
                   ),
                 ),
               ),
@@ -309,7 +309,7 @@ class _AddLandInspectorState extends State<AddLandInspector> {
                       border: OutlineInputBorder(),
                       labelText: 'Address',
                       hintText:
-                          'Enter Land Inspector Address(0xc5aEabE793B923981fc401bb8da620FDAa45ea2B)',
+                          'Enter Govt Official Address(0xc5aEabE793B923981fc401bb8da620FDAa45ea2B)',
                     ),
                   ),
                 ),
@@ -455,7 +455,7 @@ class _AddLandInspectorState extends State<AddLandInspector> {
           const SizedBox(
             width: 30,
           ),
-          const Text('Contract Owner',
+          const Text('Admin',
               style: TextStyle(
                   color: Colors.white70,
                   fontSize: 18,

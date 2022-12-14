@@ -20,6 +20,7 @@ class _home_pageState extends State<home_page> {
       isDesktop = true;
     }
     return Scaffold(
+      backgroundColor: Color(0xFF424242),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -33,9 +34,9 @@ class _home_pageState extends State<home_page> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 150.0, top: 0, right: 150),
+              padding: const EdgeInsets.only(left: 150.0, top: 50, right: 150),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const LeftDescription(),
@@ -60,37 +61,19 @@ class _home_pageState extends State<home_page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomAnimatedContainer('Contract Owner', () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const CheckPrivateKey(
-                  //               val: "owner",
-                  //             )));
+                CustomAnimatedContainer('Admin', () {
                   Navigator.of(context).pushNamed(
                     '/login',
                     arguments: "owner",
                   );
                 }),
-                CustomAnimatedContainer('Land Inspector', () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const CheckPrivateKey(
-                  //               val: "LandInspector",
-                  //             )));
+                CustomAnimatedContainer('Govt Official', () {
                   Navigator.of(context).pushNamed(
                     '/login',
                     arguments: "LandInspector",
                   );
                 }),
                 CustomAnimatedContainer('User', () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const CheckPrivateKey(
-                  //               val: "UserLogin",
-                  //             )));
                   Navigator.of(context).pushNamed(
                     '/login',
                     arguments: "UserLogin",

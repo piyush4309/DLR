@@ -712,7 +712,7 @@ class _LandInspectorState extends State<LandInspector> {
           const SizedBox(
             width: 30,
           ),
-          const Text('Land Inspector',
+          const Text('Govt Official',
               style: TextStyle(
                   color: Colors.white70,
                   fontSize: 18,

@@ -109,7 +109,7 @@ contract Land {
 
     function removeLandInspector(address _addr) public{
         require(msg.sender==contractOwner,"You are not contractOwner");
-        require(RegisteredInspectorMapping[_addr],"Land Inspector not found");
+        require(RegisteredInspectorMapping[_addr],"Govt Official not found");
         RegisteredInspectorMapping[_addr]=false;
 
 

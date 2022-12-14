@@ -20,7 +20,7 @@ class HeaderWidget extends StatelessWidget {
         // logo
         const Text(
           'Land Registry',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color: Colors.lightGreen),
         ),
 
         Row(
@@ -40,8 +40,8 @@ class HeaderWidget extends StatelessWidget {
                     'Home',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -76,8 +76,8 @@ class HeaderWidget extends StatelessWidget {
                     'User',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -109,11 +109,11 @@ class HeaderWidget extends StatelessWidget {
                     appContainer?.style.cursor = 'default';
                   },
                   child: const Text(
-                    'Land Inspector',
+                    'Govt Official',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
@@ -145,7 +145,7 @@ class HeaderWidget extends StatelessWidget {
                     appContainer?.style.cursor = 'default';
                   },
                   child: const Text(
-                    'Contract Owner',
+                    'Admin',
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Color(0xff28313b),
@@ -176,8 +176,8 @@ class HeaderWidget extends StatelessWidget {
                     'About',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
-                      fontSize: 15,
+                      color: Colors.lightGreen,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       letterSpacing: 1.627907,
