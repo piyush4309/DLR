@@ -40,50 +40,13 @@ class _home_pageState extends State<home_page> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const LeftDescription(),
-                  Center(
-                    child: Container(
-                      width: 600,
-                      height: 804,
-                      child: SvgPicture.asset(
-                        'assets/background_svg.svg',
-                        height: 20.0,
-                        width: 20.0,
-                        allowDrawingOutsideViewBox: true,
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
             const SizedBox(
               height: 100,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomAnimatedContainer('Admin', () {
-                  Navigator.of(context).pushNamed(
-                    '/login',
-                    arguments: "owner",
-                  );
-                }),
-                CustomAnimatedContainer('Govt Official', () {
-                  Navigator.of(context).pushNamed(
-                    '/login',
-                    arguments: "LandInspector",
-                  );
-                }),
-                CustomAnimatedContainer('User', () {
-                  Navigator.of(context).pushNamed(
-                    '/login',
-                    arguments: "UserLogin",
-                  );
-                }),
-              ],
-            ),
-            const SizedBox(
-              height: 100,
-            ),
+            
           ],
         ),
         // Center is a layout widget. It takes a single child and positions it

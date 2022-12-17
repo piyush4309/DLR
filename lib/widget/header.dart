@@ -148,7 +148,7 @@ class HeaderWidget extends StatelessWidget {
                     'Admin',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      color: Color(0xff28313b),
+                      color: Colors.lightGreen,
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
@@ -158,51 +158,6 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: GestureDetector(
-                onTap: () async {
-                  // await Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => RegisterUser()));
-                },
-                child: MouseRegion(
-                  onHover: (PointerHoverEvent evt) {
-                    appContainer?.style.cursor = 'pointer';
-                  },
-                  onExit: (PointerExitEvent evt) {
-                    appContainer?.style.cursor = 'default';
-                  },
-                  child: const Text(
-                    'About',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Colors.lightGreen,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      letterSpacing: 1.627907,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.all(14.0),
-            //   child: IconButton(
-            //     onPressed: () {
-            //       launchUrl(
-            //           "https://github.com/saurabh-m-w/Blockchain-Based-Property-Registration");
-            //     },
-            //     iconSize: 30,
-            //     icon: Image.asset(
-            //       'assets/github-logo.png',
-            //       color: Colors.black,
-            //       width: 60.0,
-            //       height: 60.0,
-            //       fit: BoxFit.fill,
-            //     ),
-            //   ),
-            // ),
           ],
         )
       ],
